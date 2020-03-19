@@ -16,7 +16,7 @@ mapa obtingut d'[Open Street Map](https://www.openstreetmap.org).
 Els sistema consta dels mòduls següents:
 
 - `guide.py` conté tot el codi relacionat amb l'adquisició i l'enmagatzematge de
-  grafs corresponents a mapes i el càlcul de rutes.  Aquest mòdul no en sap res
+  grafs corresponents a mapes i amb el càlcul de rutes.  Aquest mòdul no en sap res
   del bot.
 
 - `bot.py` conté tot el codi relacionat amb el bot de Telegram i utilitza el
@@ -30,7 +30,7 @@ Els sistema consta dels mòduls següents:
 El mòdul `guide` ha de contenir les funcions públiques següents:
 
 - `download_graph(place)`: Descarrega un graf osmnx d'algun lloc
-(per exemple, "Barcelona, Spain") i el retorna.
+    (per exemple, "Barcelona, Spain") i el retorna.
 
 - `save_graph(graph, filename)`: Desa el graf en un fitxer en format pickle.
 
@@ -47,7 +47,7 @@ El mòdul `guide` ha de contenir les funcions públiques següents:
 - `plot_directions(graph, source_location, destination_location, directions, filename, width=400, height=400)`:
     Dibuixa una ruta per anar d'un punt
     d'orígen a un punt de destí
-    en un graf en un fitxer en format PNG.
+    en un graf en un mapa en format PNG.
 
 Les operacions de `download`, `load` i `save` són per accelerar la velocitat de càrrega dels grafs:
 descarregar-los cada cop d'OpenSteetMap per xarxa és molt més lent que carregar-los localment.
@@ -114,7 +114,7 @@ de *Carrer de Lepant 330
 
 Aquest és el dibuix d'aquesta ruta:
 
-<center><img src='exemple.png' width='400'></center>
+<center><img src='exemple.png'></center>
 
 Fixeu-vos que els extrems de la ruta no tenen perquè ser nodes del graf.
 Per tant, caldrà buscar els nodes més propers a ells (o desenvolupar alguna
@@ -133,15 +133,15 @@ El bot de Telegram ha de donar suport a les comandes següents:
 - `/where`: dóna la localització actual de l'usuari.
 - `/cancel`: cancel·la el sistema de guia actiu.
 
-El bot hauria de començar carregant un graf (per exemple, el de Barcelona).  A
-partir d'aquell moment esperarà connexions de diferents usuaris i els ajudarà a
-arribar a la seva destinació tot calculant la ruta òptima per anar des de la
-seva posició actual fins al seu destí. Totes les comandes han de funcionar per a
-diferents usuaris alhora.
+El bot hauria de començar carregant un graf fixat (per exemple, el de
+Barcelona).  A partir d'aquell moment esperarà connexions de diferents usuaris i
+els ajudarà a arribar a la seva destinació tot calculant la ruta òptima per anar
+des de la seva posició actual fins al seu destí. Totes les comandes han de
+funcionar per a diferents usuaris alhora.
 
 Per utilitzar el bot, els usuaris han de compartir-li la seva localització en
 directe. D'aquesta forma, el bot anirà rebent actualitzacions sobre els seus
-canvis de posició i guiar-los adequadament. Si no s'ha compartit la
+canvis de posició per poder-los guiar adequadament. Si no s'ha compartit la
 localització, moltes de les comandes hauran d'assenyar l'error.
 
 El sistema de guia escollit és el següent: Quan un usuari tria una destinació
@@ -150,11 +150,16 @@ actual i mostra la ruta en un mapa. També, el bot dóna la indicació del prime
 tram i espera que l'usuari hagi arribat prop del seu punt del mig. Quan hi
 arriba, li dóna la indicació del següent tram. I així fins arribar a la
 destinació (o cancel·lar el sistema de guia). Fixeu-vos que el sistema descrit
-força a seguir els trams precalculats: l'usuari no ontindrà la següent indicació
+força a seguir els trams precalculats: l'usuari no obtindrà la següent indicació
 fins que no arribi al punt intermig esperat.
 
 El sistema hauria de donar indicacions de gir adeqüades. Per exemple,
 "gira a la dreta" o "gira lleugerament a l'esquerra".
+
+A continuació es dóna un exemple d'interacció:
+
+<center><img src='bot.png'></center>
+
 
 
 ## Llibreries
@@ -274,10 +279,15 @@ El termini de lliurament és el dia 6 de juny a les 23:59.
 
 ## Consells
 
-- Comenceu estudiant com utilitzar els grafs de `networkx`. A continuació, mireu
-  com es concreten a `osmnx`.  Implementeu primer el mòdul `guide` i proveu-lo.
-  Finalment, implementeu el mòdul `bot` i proveu-lo. Documenteu el codi a mesura
-  que l'escriviu.
+- Us suggerim seguir aquests passos:
+
+    1. Estudieu com utilitzar els grafs de `networkx`.
+    2. Mireu com es concreten a `osmnx`.  
+    3. Implementeu primer el mòdul `guide` i proveu-lo.
+    4. Estudieu com escriure un bot de Telegram i experimenteu separadament les parts que necessitareu.
+    5. Implementeu el mòdul `bot` i proveu-lo.
+
+  Documenteu el codi a mesura que l'escriviu.
 
 - Passejar per la ciutat per provar el bot és massa pesat: Afegiu comandes al
   bot per poder depurar el programa només amb l'ordinador.  Per exemple, podeu
