@@ -291,7 +291,8 @@ El termini de lliurament és el dia 6 de juny a les 23:59.
 
 - Passejar per la ciutat per provar el bot és massa pesat: Afegiu comandes al
   bot per poder depurar el programa només amb l'ordinador.  Per exemple, podeu
-  crear una comanda per passar una localització falsa.
+  crear una comanda per passar una localització falsa. De fet, intenteu provar-ho
+  tot tant com pogueu fora de Telegram, perquè altrament s'hi perd molt de temps.
 
 - L'enunciat deixa obertes moltes qüestions expressament (per exemple: què vol
   dir estar prou a prop d'un punt intermig?). Sou els responsables de prendre
