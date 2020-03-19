@@ -158,7 +158,7 @@ El sistema hauria de donar indicacions de gir adeqüades. Per exemple,
 
 A continuació es dóna un exemple d'interacció:
 
-<center><img src='bot.png'></center>
+<center><img src='bot.png' width='393'></center>
 
 
 
