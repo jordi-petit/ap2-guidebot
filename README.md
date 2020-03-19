@@ -7,7 +7,7 @@ El projecte GuideBot per AP2 (edició 2020).
 
 Aquesta pàgina descriu el projecte GuideBot, que correspon a la segona pràctica
 del curs 2020 d'AP2 al GCED. La vostra tasca consisteix en implementar un Bot de
-Telegram que permeti guiar un usuari fins a la seva destinació a través d'un
+Telegram que permeti guiar als seus usuaris fins a la seva destinació a través d'un
 mapa obtingut d'[Open Street Map](https://www.openstreetmap.org).
 
 
@@ -15,25 +15,26 @@ mapa obtingut d'[Open Street Map](https://www.openstreetmap.org).
 
 Els sistema consta dels mòduls següents:
 
-- `guide.py` conté tot el codi relacionat amb l'adquisició i l'enmagatzematge de grafs i el càlcul de rutes.
-Aquest mòdul no en sap res del bot.
+- `guide.py` conté tot el codi relacionat amb l'adquisició i l'enmagatzematge de
+  grafs corresponents a mapes i el càlcul de rutes.  Aquest mòdul no en sap res
+  del bot.
 
-- `bot.py` conté tot el codi relacionat amb el bot de Telegram i utilitza el mòdul `guide`.
-La seva tasca és reaccionar a les comandes dels usuaris i als seus canvis de localització per
-poder-los guiar.
+- `bot.py` conté tot el codi relacionat amb el bot de Telegram i utilitza el
+  mòdul `guide`. La seva tasca és reaccionar a les comandes i als
+  canvis de localització dels usuaris per poder-los guiar.
 
 
 
-## Funcionalitats del mòdul `guide`
+## Funcionalitat del mòdul `guide`
 
-El mòdul `guide` ha de contenir les funcions següents:
+El mòdul `guide` ha de contenir les funcions públiques següents:
 
 - `download_graph(place)`: Descarrega un graf osmnx d'algun lloc
 (per exemple, "Barcelona, Spain") i el retorna.
 
 - `save_graph(graph, filename)`: Desa el graf en un fitxer en format pickle.
 
-- `load_graph(filename)`: Carrega un graf d'un fitxer en formar pickle i el retorna.
+- `load_graph(filename)`: Carrega un graf d'un fitxer en format pickle i el retorna.
 
 - `print_graph(graph)`: Mostra el contingut d'un graf (per depurar).
 
@@ -49,23 +50,22 @@ El mòdul `guide` ha de contenir les funcions següents:
     en un graf en un fitxer en format PNG.
 
 Les operacions de `download`, `load` i `save` són per accelerar la velocitat de càrrega dels grafs:
-descarregar-los cada cop d'OpenSteetMap és molt més lent que carregar-los localment.
+descarregar-los cada cop d'OpenSteetMap per xarxa és molt més lent que carregar-los localment.
 
 
 ## Rutes
 
-Una ruta descriu com anar d'un punt d'orígen a un punt de destí
-en un graf. Correspon a una llista de trams, on cada tram conté informació
-sobre el punt inicial (`src`), el punt del mig (`mid`), el punt destí
-(`dst`) i més informacions com ara el nom dels carrers entre aquests punts,
-la seva longitud, direcció relativa... per tal d'informar a l'usuari que,
-des del punt inicial ha d'anar fins al punt mig i agafar el camí que porta
-fins al punt de destí.
+Una ruta descriu com anar d'un punt d'orígen a un punt de destí en un graf i és
+una llista de trams. Cada tram conté informació sobre el punt inicial (`src`),
+el punt del mig (`mid`), el punt destí (`dst`) i més informacions com ara el nom
+dels carrers entre aquests punts, la seva longitud, direcció relativa... per tal
+d'informar a l'usuari que, des del punt inicial ha d'anar fins al punt mig i
+d'allà, agafar el camí que porta fins al punt de destí.
 
 Per exemple, en el mapa de Barcelona, aquesta podria ser la ruta per anar
-de *Carrer de Lepant 330*
-(41.40674136015038, 2.1738860390977446) a *Sagrada Familia*
-(41.4034789, 2.1744103330097055) en moto elèctrica:
+de *Carrer de Lepant 330
+(41.40674136015038, 2.1738860390977446)* a *Sagrada Familia
+(41.4034789, 2.1744103330097055)* en moto elèctrica:
 
 ```python
 [{'angle': None,
