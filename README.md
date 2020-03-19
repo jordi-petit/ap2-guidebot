@@ -121,17 +121,17 @@ Per tant, caldrà buscar els nodes més propers a ells (o desenvolupar alguna
 tècnica més òptima).
 
 
-## Bot de Telegram
+## Funcionalitat del mòdul `bot`
 
 El bot de Telegram ha de donar suport a les comandes següents:
 
-- `/start` inicia la conversa.
-- `/help` ofereix ajuda sobre les comandes disponibles.
-- `/author` mostra el nom dels autors del projecte.
-- `/go destí` comença a guiar l'usuari per arrivar del seu punt actual a punt de destí escollit.
+- `/start`: inicia la conversa.
+- `/help`: ofereix ajuda sobre les comandes disponibles.
+- `/author`: mostra el nom dels autors del projecte.
+- `/go destí`: comença a guiar l'usuari per arrivar de la seva posició actual fins al punt de destí escollit.
    Per exemple: `/go Campus Nord`.
-- `/where` dóna la localització actual de l'usuari.
-- `/cancel` cancel·la el sistema de guia actiu.
+- `/where`: dóna la localització actual de l'usuari.
+- `/cancel`: cancel·la el sistema de guia actiu.
 
 El bot hauria de començar carregant un graf (per exemple, el de Barcelona).  A
 partir d'aquell moment esperarà connexions de diferents usuaris i els ajudarà a
@@ -139,20 +139,23 @@ arribar a la seva destinació tot calculant la ruta òptima per anar des de la
 seva posició actual fins al seu destí. Totes les comandes han de funcionar per a
 diferents usuaris alhora.
 
-Per utilitzar el bot, els usuaris han de compartir la seva localització en
+Per utilitzar el bot, els usuaris han de compartir-li la seva localització en
 directe. D'aquesta forma, el bot anirà rebent actualitzacions sobre els seus
-canvis de posició i guiar-los adequadament.
+canvis de posició i guiar-los adequadament. Si no s'ha compartit la
+localització, moltes de les comandes hauran d'assenyar l'error.
 
 El sistema de guia escollit és el següent: Quan un usuari tria una destinació
-(amb `/go`), el bot calcula la seva ruta òptima i la mostra en un mapa. Llavors
-el bot dóna la indicació del primer tram i espera que l'usuari hagi arribat prop
-del seu punt del mig. Quan hi arriba, li dóna la indicació del següent tram. I
-així fins arribar a la destinació (o cancel·lar el sistema de guia). Fixeu-vos
-que el sistema descrit força a seguir els trams precalculats: l'usuari no
-ontindrà la següent indicació fins que no arribi al punt intermig esperat.
+(amb `/go`), el bot calcula la ruta òptima per arribar-hi des de la seva posició
+actual i mostra la ruta en un mapa. També, el bot dóna la indicació del primer
+tram i espera que l'usuari hagi arribat prop del seu punt del mig. Quan hi
+arriba, li dóna la indicació del següent tram. I així fins arribar a la
+destinació (o cancel·lar el sistema de guia). Fixeu-vos que el sistema descrit
+força a seguir els trams precalculats: l'usuari no ontindrà la següent indicació
+fins que no arribi al punt intermig esperat.
 
 El sistema hauria de donar indicacions de gir adeqüades. Per exemple,
 "gira a la dreta" o "gira lleugerament a l'esquerra".
+
 
 ## Llibreries
 
@@ -164,7 +167,14 @@ Utilitzeu les llibreries de Python següents:
 - `staticmap` per pintar mapes.
 - `python-telegram-bot` per interactuar amb Telegram.
 
-Podeu utilitzar lliurament altres llibreries estàndards de Python, però si no són estàndards, heu de demanar permís als vostres professors (que segurament no us el donaran).
+Totes es poden instal·lar amb `pip3 install`, però `osmnx` també requereix
+instal·lar `spatialindex` (instal·lable amb `brew install spatialindex` en Mac o
+`apt install spatialindex` en Ubuntu). També es poden instal·lar totes amb
+Anaconda.
+
+Podeu utilitzar lliurament altres llibreries estàndards de Python, però si no
+són estàndards, heu de demanar permís als vostres professors (que segurament no
+us el donaran).
 
 
 ## Fonts d'informació
@@ -182,12 +192,12 @@ Aquests enllaços us seran útils per fer el vostre projecte:
 
 ## Indicacions per treballar amb els grafs d'OSMnx
 
-Els grafs d'OSMnx són força complicats. Per facilitar-vos la feina,
+Els grafs d'OSMnx tenen molta informació. Per facilitar-vos la feina,
 demaneu-los simplificats i calculeu les orientacions dels camins al carregar-los.
-Per exemple,
+Per exemple:
 
 ```Python
-graph = osmnx.graph_from_place(place, network_type='drive', simplify=True)
+graph = osmnx.graph_from_place("Berga, Spain", network_type='drive', simplify=True)
 osmnx.geo_utils.add_edge_bearings(graph)
 ```
 
@@ -208,9 +218,10 @@ for node1, info1 in graph.nodes.items():
         print('        ', edge)
 ```
 
-De forma molt infreqüent, els grafs d'OSMnx tenen multi-arestes. El codi anterior
-les ignora. El codi anterior també eliminar la geometria dels camins, ja que en aquest
-projecte no ens interessa. Compte: a vegades hi ha sorpreses: carrers amb més d'un nou,
+De forma molt infreqüent, els grafs d'OSMnx tenen multi-arestes. El codi
+anterior les ignora tot quedant-se amb la primera aresta. Feu el mateix. El
+codi anterior també elimina la geometria dels camins, ja que en aquest projecte
+no ens interessa. Compte: a vegades hi ha sorpreses: carrers amb més d'un nom,
 valors absents o nuls...
 
 
@@ -234,9 +245,15 @@ Si no es reb cap missatge d'equip per aquesta data, es considerarà que feu la p
 ## Lliurament
 
 Heu de lliurar la vostra pràctica al Racó.
-Només heu de lliurar un fitxer ZIP que, al descomprimir-se
-generi els fitxers `guide.py` i `bot.py`, un fitxer `requirements.txt` i un
-fitxer `README.md`. Res més. Sense directoris.
+Només heu de lliurar un fitxer ZIP que, al descomprimir-se,
+generi els fitxers següents:
+
+- `guide.py`,
+- `bot.py`,
+- `requirements.txt` i
+- `README.md`.
+
+Res més. Sense directoris ni subdirectoris.
 
 Els vostres fitxers de codi en Python han de seguir
 [les regles d'estíl PEP8](https://www.python.org/dev/peps/pep-0008/). Podeu
@@ -257,23 +274,27 @@ El termini de lliurament és el dia 6 de juny a les 23:59.
 
 ## Consells
 
-La part del bot de Telegram és divertida, però deixeu-la pel final.
+- Comenceu estudiant com utilitzar els grafs de `networkx`. A continuació, mireu
+  com es concreten a `osmnx`.  Implementeu primer el mòdul `guide` i proveu-lo.
+  Finalment, implementeu el mòdul `bot` i proveu-lo. Documenteu el codi a mesura
+  que l'escriviu.
 
-Passejar per la ciutat per provar el bot és massa pesat: Afegiu comandes
-al bot per poder debugar. Per exemple, podeu crear una comanda per passar
-una localització falsa.
+- Passejar per la ciutat per provar el bot és massa pesat: Afegiu comandes al
+  bot per poder depurar el programa només amb l'ordinador.  Per exemple, podeu
+  crear una comanda per passar una localització falsa.
 
-L'enunciat deixa obertes moltes qüestions expressament (per exemple: què vol dir
-estar prou a prop?). Sou els responsables de prendre les vostres decisions de
-disseny i deixar-les reflectides adientment al codi i a la documentació.
+- L'enunciat deixa obertes moltes qüestions expressament (per exemple: què vol
+  dir estar prou a prop d'un punt intermig?). Sou els responsables de prendre
+  les vostres decisions de disseny i deixar-les reflectides adientment al codi i
+  a la documentació.
 
-Podeu ampliar les capacitats del vostre projecte mentre manteniu les funcionalitats
-mínimes previstes en aquest enunciat. Ara bé, aviseu abans als vostres professors
-i deixeu-ho tot ben documentat.
+- Podeu ampliar les capacitats del vostre projecte mentre manteniu les
+  funcionalitats mínimes previstes en aquest enunciat. Ara bé, aviseu abans als
+  vostres professors i deixeu-ho tot ben documentat.
 
-Per evitar problemes de còpies,
-no pengeu el vostre projecte en repositoris públics. Si us cal un repositori
-GIT, useu [GITLAB FIB](https://gitlab.fib.upc.edu/users/sign_in).
+- Per evitar problemes de còpies, no pengeu el vostre projecte en repositoris
+  públics. Si us cal un repositori GIT, useu [GITLAB
+  FIB](https://gitlab.fib.upc.edu/users/sign_in).
 
 
 ## Autors
