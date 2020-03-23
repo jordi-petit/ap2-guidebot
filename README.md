@@ -255,8 +255,9 @@ generi els fitxers següents:
 
 - `guide.py`,
 - `bot.py`,
-- `requirements.txt` i
-- `README.md`.
+- `requirements.txt`,
+- `README.md` i
+- `*.png` si cal.
 
 Res més. Sense directoris ni subdirectoris.
 
@@ -269,6 +270,7 @@ prohibit (zero directe).
 
 El projecte ha de contenir un fitxer `README.md`
 que el documenti. Vegeu, per exemple, https://gist.github.com/PurpleBooth/109311bb0361f32d87a2.
+Si us calen imatges al `README.md`, deseu-los com a fitxers PNG.
 
 El projecte també ha de contenir un fitxer `requirements.txt`
 amb les llibreries que utilitza el vostre projecte per poder-lo instal·lar.
