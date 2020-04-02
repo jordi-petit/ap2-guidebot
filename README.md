@@ -120,6 +120,8 @@ Fixeu-vos que els extrems de la ruta no tenen perquè ser nodes del graf.
 Per tant, caldrà buscar els nodes més propers a ells (o desenvolupar alguna
 tècnica més òptima).
 
+De fet, sou lliures de triar vosaltres mateixos la representació més adequada dels trams pels vostres propòsits. La idea important és que tot el càlcul de la ruta és fet per la funció `get_directions` per tal que el bot sigui el més senzill possible.
+
 
 ## Funcionalitat del mòdul `bot`
 
@@ -154,7 +156,10 @@ força a seguir els trams precalculats: l'usuari no obtindrà la següent indica
 fins que no arribi al punt intermig esperat.
 
 El sistema hauria de donar indicacions de gir adeqüades. Per exemple,
-"gira a la dreta" o "gira lleugerament a l'esquerra".
+"gira a la dreta" o "gira lleugerament a l'esquerra". Aquí en teniu una proposta:
+
+<center><img src='angles.png' width='405'></center>
+<br>
 
 A continuació es dóna un exemple d'interacció:
 
@@ -257,7 +262,7 @@ generi els fitxers següents:
 - `bot.py`,
 - `requirements.txt`,
 - `README.md` i
-- `*.png` si cal.
+- `*.png` si cal adjuntar imatges a la documentació.
 
 Res més. Sense directoris ni subdirectoris.
 
@@ -291,7 +296,7 @@ El termini de lliurament és el dia 6 de juny a les 23:59.
 
   Documenteu el codi a mesura que l'escriviu.
 
-- Passejar per la ciutat per provar el bot és massa pesat: Afegiu comandes al
+- Passejar per la ciutat per provar el bot és massa pesat (i, de fet, pot estar prohibit a causa del confinament): Afegiu comandes al
   bot per poder depurar el programa només amb l'ordinador.  Per exemple, podeu
   crear una comanda per passar una localització falsa. De fet, intenteu provar-ho
   tot tant com pogueu fora de Telegram, perquè altrament s'hi perd molt de temps.
