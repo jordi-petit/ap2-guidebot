@@ -242,7 +242,7 @@ valors absents o nuls...
 
 Podeu fer aquest projecte sols o en equips de dos. En cas de fer-lo en equip, la càrrega de treball dels dos membres de l'equip ha de ser semblant i el resultat final és responsabilitat d'ambdós. Cada membre de l'equip ha de saber què ha fet l'altre membre.
 
-Els qui decidiu fer el segon projecte en un equip de 2 estudiants, envieu abans de les 23:59 del dia 5 de maig un missatge  al professor Jordi Petit amb aquestes característiques:
+Els qui decidiu fer el segon projecte en un equip de 2 estudiants, envieu abans de les 23:59 del dia 24 d'abril un missatge al professor Jordi Petit amb aquestes característiques:
 
 - des del compte oficial d'un dels dos membres,
 - amb tema (subject) "Equips AP2",
@@ -255,6 +255,8 @@ Si no es reb cap missatge d'equip per aquesta data, es considerarà que feu la p
 ## Lliurament
 
 Heu de lliurar la vostra pràctica al Racó.
+El termini de lliurament és el **divendres 5 de juny a les 23:59 CEST**.
+
 Només heu de lliurar un fitxer ZIP que, al descomprimir-se,
 generi els fitxers següents:
 
@@ -281,7 +283,6 @@ El projecte també ha de contenir un fitxer `requirements.txt`
 amb les llibreries que utilitza el vostre projecte per poder-lo instal·lar.
 Vegeu, per exemple, https://pip.pypa.io/en/stable/user_guide/#requirements-files.
 
-El termini de lliurament és el dia 6 de juny a les 23:59.
 
 
 ## Consells
