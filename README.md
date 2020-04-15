@@ -1,6 +1,6 @@
 # GuideBot
 
-El projecte GuideBot per AP2 (edició 2020).
+No us perdeu més: GuideBot us ensenya el camí! 🧭
 
 
 ## Introducció
