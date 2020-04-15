@@ -320,4 +320,4 @@ Vegeu, per exemple, https://pip.pypa.io/en/stable/user_guide/#requirements-files
 
 Jordi Cortadella i Jordi Petit
 
-Universitat Politècnica de Cataluna, 2020
+Universitat Politècnica de Catalunya, 2020
