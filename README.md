@@ -242,10 +242,10 @@ valors absents o nuls...
 
 Podeu fer aquest projecte sols o en equips de dos. En cas de fer-lo en equip, la càrrega de treball dels dos membres de l'equip ha de ser semblant i el resultat final és responsabilitat d'ambdós. Cada membre de l'equip ha de saber què ha fet l'altre membre.
 
-Els qui decidiu fer el segon projecte en un equip de 2 estudiants, envieu abans de les 23:59 del dia 24 d'abril un missatge al professor Jordi Petit amb aquestes característiques:
+Els qui decidiu fer el segon projecte en un equip de 2 estudiants, envieu abans de les **23:59 del dia 24 d'abril** un missatge al professor Jordi Petit amb aquestes característiques:
 
 - des del compte oficial d'un dels dos membres,
-- amb tema (subject) "Equips AP2",
+- amb tema (subject) "Equips AP2 2020",
 - amb el nom dels dos estudiants de l'equip al cos del missatge,
 - fent còpia (CC) al compte oficial de l'altre estudiant,
 
