@@ -179,7 +179,7 @@ Utilitzeu les llibreries de Python següents:
 
 Totes es poden instal·lar amb `pip3 install`, però `osmnx` també requereix
 instal·lar `spatialindex` (instal·lable amb `brew install spatialindex` en Mac o
-`apt install spatialindex` en Ubuntu). També es poden instal·lar totes amb
+`apt install libspatialindex-dev` en Ubuntu). També es poden instal·lar totes amb
 Anaconda.
 
 Podeu utilitzar lliurament altres llibreries estàndards de Python, però si no
