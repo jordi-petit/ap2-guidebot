@@ -36,7 +36,7 @@ El mòdul `guide` ha de contenir les funcions públiques següents:
 
 - `load_graph(filename)`: Carrega un graf d'un fitxer en format pickle i el retorna.
 
-- `print_graph(graph)`: Mostra el contingut d'un graf (per depurar).
+- `print_graph(graph)`: Mostra el contingut d'un graf (aquesta funció només és útil per depurar i inspeccionar el graf). Cal que escrigui, en format text, tots els nodes del graf, juntament amb les seves arestes adjacents. Els nodes i les arestes s'han de mostrar amb tots els seus atributs.
 
 - `get_directions(graph, source_location, destination_location)`:
     Retorna la millor ruta (*directions*) per anar d'un punt d'orígen a un punt de destí
@@ -47,7 +47,7 @@ El mòdul `guide` ha de contenir les funcions públiques següents:
 - `plot_directions(graph, source_location, destination_location, directions, filename, width=400, height=400)`:
     Dibuixa una ruta per anar d'un punt
     d'orígen a un punt de destí
-    en un graf en un mapa en format PNG.
+    en un graf en un mapa en format PNG utulitzant la llibreria `staticmap`.
 
 Les operacions de `download`, `load` i `save` són per accelerar la velocitat de càrrega dels grafs:
 descarregar-los cada cop d'OpenSteetMap per xarxa és molt més lent que carregar-los localment.
@@ -133,7 +133,7 @@ El bot de Telegram ha de donar suport a les comandes següents:
 - `/go destí`: comença a guiar l'usuari per arrivar de la seva posició actual fins al punt de destí escollit.
    Per exemple: `/go Campus Nord`.
 - `/where`: dóna la localització actual de l'usuari.
-- `/cancel`: cancel·la el sistema de guia actiu.
+- `/cancel`: cancel·la el sistema de guia actiu de l'usuari.
 
 El bot hauria de començar carregant un graf fixat (per exemple, el de
 Barcelona).  A partir d'aquell moment esperarà connexions de diferents usuaris i
