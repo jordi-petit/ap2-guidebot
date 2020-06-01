@@ -254,7 +254,7 @@ Si no es reb cap missatge d'equip per aquesta data, es considerarà que feu la p
 
 ## Lliurament
 
-Heu de lliurar la vostra pràctica al Racó.
+Heu de lliurar la vostra pràctica al Racó. Si heu fet la pràctica en equip, només el membre més jove ha de fer el lliurament.
 El termini de lliurament és el **divendres 5 de juny a les 23:59 CEST**.
 
 Només heu de lliurar un fitxer ZIP que, al descomprimir-se,
